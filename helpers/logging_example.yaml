@@ -1,0 +1,49 @@
+---
+version: 1
+disable_existing_loggers: true
+
+formatters:
+  verbose:
+    # format: "%(name)-20s %(levelname)-6s[ %(funcName)-5s] %(threadName)s %(message)s"
+    format: "%(levelname)-6s %(name)s:%(lineno)s | %(funcName)-5s | %(message)s "
+  simple:
+    format: "%(name)-10s %(lineno)-10s %(message)s"
+
+handlers:
+  console:
+    level: DEBUG
+    class: logging.StreamHandler
+    formatter: verbose
+    stream: ext://sys.stdout
+
+  debug_file:
+    level: INFO
+    class: logging.handlers.WatchedFileHandler
+    # formatter: verbose
+    filename: "./cc-client-debug.log"
+    mode: a
+    encoding: utf-8
+
+loggers:
+  jars.dropbox:
+    level: DEBUG
+
+  jars.onedrive:
+    level: DEBUG
+
+  cc.settings_sync:
+    level: DEBUG
+
+  cc.step:
+    level: DEBUG
+
+  cc:
+    level: INFO
+
+  requests:
+    level: INFO
+root:
+  handlers:
+  - console
+  # - debug_file
+  level: DEBUG

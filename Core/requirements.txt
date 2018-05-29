@@ -1,0 +1,40 @@
+# this is needed before jars because, either we are stupid or setuptools+pip do not know how to install that specific wheel
+pypiwin32; sys_platform == 'win32'
+pyperclip==1.5.27
+git+https://github.com/julian-r/pykka.git@priority_queue#egg=pykka
+fysom==2.1.2
+git+https://github.com/cross-cloud/watchdog.git@master#egg=watchdog
+git+ssh://git@gitlab.crosscloud.me/CrossCloud/bourne-rpc.git@v0.0.2
+git+ssh://git@gitlab.crosscloud.me/CrossCloud/bushn.git@v1.0.11
+git+ssh://git@gitlab.crosscloud.me/CrossCloud/jars.git@v1.3.12
+requests[security]==2.13.0
+cryptography==1.8.1
+keyring==10.4.0
+appdirs==1.4.0
+packaging
+boxsdk
+python-dateutil==2.5.3
+raven
+filelock==2.0.6
+requests-ntlm==1.0.0
+requests_oauthlib==0.7.0
+keyrings.alt==2.2
+comtypes
+marshmallow
+blinker==1.4.0
+atomicwrites==1.1.5
+selenium==3.0.2
+send2trash==1.4.1
+transitions==0.5.3
+
+# for mime type file inspection
+python-magic-bin; sys_platform != 'linux'
+python-magic; sys_platform == 'linux'
+
+# current ssl certificates
+certifi
+
+# for command line parsing
+click
+
+-r requirements/dev.txt

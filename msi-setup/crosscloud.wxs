@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
+     xmlns:util="http://schemas.microsoft.com/wix/UtilExtension"
+     RequiredVersion="3.10.2.2516">
+    <Product Id="*" Name="crosscloud"
+             Language="1033" Version="16.10.1.0"
+             Manufacturer="crosscloud GmbH"
+             UpgradeCode="f10e607f-77fd-4276-acf9-1b1845aec6d9">
+        <!-- For https://msdn.microsoft.com/en-us/library/dd408068(v=vs.85).aspx -->
+        <Package Description="crosscloud" Comments="Version: 16.10.1.0"
+                 InstallerVersion="500" Compressed="yes"
+                 InstallScope="perUser"
+                 Platform="x64"/>
+
+        <MajorUpgrade AllowDowngrades="yes" IgnoreRemoveFailure="yes"/>
+
+
+        <!-- don't show a modify button in the add/remove programs panel -->
+        <Property Id="ARPNOMODIFY" Value="yes" Secure="yes" />
+
+        <!-- https://msdn.microsoft.com/en-us/library/dd408007(v=vs.85).aspx this MSI is currently a fixed perUser installation -->
+        <Property Id="ALLUSERS" Secure="yes" Value="2"/>
+        <Property Id="MSIINSTALLPERUSER" Value="1"/>
+
+        <!-- as cool as it might be, to not restart the whole computer to update. It will be necesarry to do so, until we handle WM_CLOSE and WM_ENDSESSION correctly in electron. see https://blogs.msdn.microsoft.com/windows_installer_team/2006/12/11/windows-installer-and-restart-manager-msi-files-in-use-v2/ -->
+        <!-- <Property Id="MSIRESTARTMANAGERCONTROL" Value="Disable" /> -->
+        <!-- as cool as it might be, to not restart the whole computer to update. It will be necesarry to do so, until we handle WM_CLOSE and WM_ENDSESSION correctly in electron. see https://blogs.msdn.microsoft.com/windows_installer_team/2006/12/11/windows-installer-and-restart-manager-msi-files-in-use-v2/
+        BREAKS INSTALLATION on Upgrade  -->
+        <!-- <Property Id="MSIRESTARTMANAGERCONTROL" Value="Disable" /> -->
+
+        <!-- needed -->
+        <Media Id="1" Cabinet="data.cab" EmbedCab="yes"/>
+
+        <!-- sets the property WixShellExecTarget and the WixShellExec entry point then starts the application at the end of the installation. There are serveral solutions doing that -->
+        <!-- <Property Id="WixShellExecTarget" Value="[#cc_main]"/>
+        <CustomAction Id="LaunchApplication" BinaryKey="WixCA" DllEntry="WixShellExec" Impersonate="yes"/> -->
+        <CustomAction Id="LaunchApplication" Directory="APPLICATIONFOLDER" ExeCommand="[#cc_main]" Return="asyncNoWait">
+            <!-- hell yeah m$! https://stackoverflow.com/questions/320921/how-to-add-a-wix-custom-action-that-happens-only-on-uninstall-via-msi 
+            starts crosscloud in case of change repair install and upgrade; not remove-->
+            (NOT REMOVE) OR UPGRADINGPRODUCTCODE
+        </CustomAction>
+
+        <!-- due a bug in all versions prior 9/7/16,so the installer won't start crosscloud after an uninstall -->
+        <CustomAction Id="RemoveOldExecutable" Directory="APPLICATIONFOLDER" ExeCommand="cmd /c del [#cc_main]" Return="asyncNoWait">
+        </CustomAction>
+        <!-- Action to forcfully kill crosscloud, this is because I haven't found a way to handle WM_* messages in electron (send by the restartmanager) -->
+        <CustomAction Id="StopRunningCrossCloud" Directory="APPLICATIONFOLDER" ExeCommand="taskkill /f /t /im crosscloud.exe" Return="asyncNoWait">
+        </CustomAction>
+
+        <InstallExecuteSequence>
+            <Custom Action="LaunchApplication" After="InstallFinalize" />
+            <Custom Action="StopRunningCrossCloud" Before="RemoveOldExecutable" />
+            <Custom Action="RemoveOldExecutable" Before="RemoveExistingProducts" />
+        </InstallExecuteSequence>
+
+        <!-- removes the sidebar icon in explorer on windows 10 on uninstall -->
+        <Component Id="RemoveExplorerSidebar" Directory="APPLICATIONFOLDER" Win64="yes">
+            <!-- fake entry to be able to identify the installation -->
+            <RegistryValue Id="Sidebar" Root="HKCU" KeyPath="yes" Key="Software\Classes\CLSID\{E7748DA5-81E7-4753-A5BA-C7C42E17A1C7}" Name="MsiInstallValue" Value="" Type="string" />
+            <RemoveRegistryKey Root="HKCU" Key="Software\Classes\CLSID\{E7748DA5-81E7-4753-A5BA-C7C42E17A1C7}" Action="removeOnUninstall" />
+            <RemoveRegistryKey Root="HKCU" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\Desktop\NameSpace\{E7748DA5-81E7-4753-A5BA-C7C42E17A1C7}" Action="removeOnUninstall" />
+        </Component>
+
+
+        <!-- C++ runtime for the shell extension; this is only working with admin priviledges, so not for us
+        see http://wixtoolset.org/documentation/manual/v3/howtos/redistributables_and_install_checks/install_vcredist.html -->
+        <!-- 
+        <DirectoryRef Id="TARGETDIR">
+            <Merge Id="VCRedist" SourceFile="$(env.ProgramFiles(x86))\Common Files\Merge Modules\Microsoft_VC140_CRT_x64.msm" DiskId="1" Language="0"/>
+        </DirectoryRef>
+
+        <Feature Id="VCRedist" Title="Visual C++ 14.0 Runtime" AllowAdvertise="no" Display="hidden" Level="1">
+            <MergeRef Id="VCRedist"/>
+        </Feature> -->
+
+        <Property Id="WORKINGDIRECTORY" Value="%LOCALAPPDATA%\crosscloud"/>
+
+        <!-- Auto-start via Registry, it might be controlled via the ASSISTANCE_START_VIA_REGISTRY propert -->
+        <Property Id="ASSISTANCE_START_VIA_REGISTRY">1</Property>
+        <Component Id="CrossCloudAutostart" Directory="APPLICATIONFOLDER" Win64="yes">
+            <RegistryValue Id="MerAs.rst" Root="HKMU" Action="write"
+                           Key="Software\Microsoft\Windows\CurrentVersion\Run"
+                           Name="crosscloud client"
+                           Value="[#cc_main]"
+                           Type="string"/>
+            <!-- this registers the crosscloud.exe so it will be executed in the %LOCALAPPDATA%\crosscloud as cwd -->
+            <RegistryValue Id="apppathexec" Root="HKMU" Action="write"
+               Key="SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\crosscloud.exe"
+               Value="[#cc_main]"
+               Type="string"/>
+            <RegistryValue Id="apppath" Root="HKMU" Action="write"
+               Key="SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\crosscloud.exe"
+               Name="PATH"
+               Value="[WORKINGDIRECTORY]"
+               Type="string"/>
+            <Condition>ASSISTANCE_START_VIA_REGISTRY</Condition>
+        </Component>
+
+
+        <!-- Add/Remove icon-->
+        <Property Id="ARPPRODUCTICON" Value="CrossCloudIcon"/>
+        <Icon Id="CrossCloudIcon" SourceFile="..\electron-ui\assets\icon.ico"/>
+
+        <!-- the bundle created by the create_bundle.py script -->
+        <?include bundle.wxi ?>
+    </Product>
+</Wix>

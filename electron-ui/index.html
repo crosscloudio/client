@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>CrossCloud</title>
+    <style>
+      html {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+      body {
+        /* antd changes that property */
+        background: transparent !important;
+        -webkit-user-select: none;
+      }
+      body.win10 {
+        width: 100vw;
+        height: 100vh;
+      }
+      button {
+        cursor: default !important;
+      }
+    </style>
+  </head>
+  <body style="margin:0">
+    <div id="app"></div>
+    <script src="renderer-build/bundle.js"></script>
+  </body>
+</html>

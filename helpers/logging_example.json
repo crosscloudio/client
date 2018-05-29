@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "disable_existing_loggers": true,
+  "formatters": {
+    "verbose": {
+      "format": "%(asctime)s %(name)-25s %(levelname)-6s[ %(funcName)-10s] %(message)s"
+    },
+    "simple": {
+      "format": "{name:<15s} {lineno:4d}; {message:s}"
+    }
+  },
+  "handlers": {
+    "console": {
+      "level": "DEBUG",
+      "class": "logging.StreamHandler",
+      "formatter": "verbose",
+      "stream": "ext://sys.stdout"
+    },
+    "debug_file": {
+      "level": "INFO",
+      "class": "logging.handlers.WatchedFileHandler",
+      "formatter": "simple",
+      "filename": "./cc-client-debug.log",
+      "mode": "a",
+      "encoding": "utf-8"
+    }
+  },
+  "loggers": {
+    "jars.dropbox": {
+      "level": "DEBUG"
+    },
+    "jars.onedrive": {
+      "level": "DEBUG",
+      "handlers": [
+        "console"
+      ]
+    }
+  },
+  "root": {
+    "handlers": [
+      "console", "debug_file"
+    ],
+    "level": "DEBUG"
+  }
+}

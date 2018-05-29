@@ -1,0 +1,21 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+    "python.pythonPath": "${workspaceRoot}/.venv/bin/python",
+    "python.formatting.autopep8Path": "${workspaceRoot}/.venv/bin/autopep8",
+    "python.unitTest.pyTestArgs": [],
+    "python.unitTest.pyTestEnabled": true,
+    "editor.rulers": [
+        99
+    ],
+    "python.linting.pylintEnabled": true,
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/.DS_Store": true,
+        "**/.vscode": true,
+        "**/.venv": true,
+        "**/.ipynb_checkpoints": true,
+        "**/.cache": true,
+    }
+}

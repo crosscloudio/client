@@ -1,0 +1,110 @@
+{
+  "name": "crosscloud",
+  "version": "2016.5.2-business",
+  "private": true,
+  "author": "crosscloud",
+  "description": "crosscloud",
+  "scripts": {
+    "eslint": "eslint .",
+    "lint": "npm run eslint && npm run prettier-check",
+    "prettier": "prettier --single-quote --trailing-comma es5 --write \"{renderer,shell}/**/*.js\"  *.js",
+    "prettier-check": "prettier --single-quote --trailing-comma es5 --list-different \"{renderer,shell}/**/*.js\"  *.js",
+    "start": "./node_modules/.bin/webpack --progress -d && ./node_modules/.bin/electron .",
+    "test": "jest"
+  },
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "build": {
+    "appId": "crosscloud.ui",
+    "asar": false,
+    "dmg": {
+      "background": "../assets/installer_background.png",
+      "icon": "../assets/installericon.icns"
+    },
+    "mac": {
+      "category": "public.app-category.utilities",
+      "extraResources": [
+        "../PlugIns"
+      ]
+    },
+    "win": {
+      "target": "dir"
+    },
+    "files": [
+      "**/*",
+      "!__mocks__",
+      "!__tests__"
+    ],
+    "extraResources": [
+      {
+        "from": "../daemon",
+        "to": "app/daemon",
+        "filter": [
+          "**/*",
+          "!prod/assets${/*}"
+        ]
+      }
+    ]
+  },
+  "dependencies": {
+    "auto-launch": "^5.0.1",
+    "co": "^4.6.0",
+    "debug": "^2.6.8",
+    "electron-json-storage": "^2.0.0",
+    "electron-squirrel-startup": "^1.0.0",
+    "filepath": "^1.1.0",
+    "glob": "^7.1.2",
+    "lodash": "^4.17.4",
+    "uuid": "^3.1.0",
+    "raven": "^1.0.0-beta.1",
+    "request": "^2.81.0",
+    "semver": "^5.4.1",
+    "split": "^1.0.0",
+    "underscore.string": "^3.3.4",
+    "winston": "^2.3.1"
+  },
+  "optionalDependencies": {
+    "node-windows": "^0.1.14",
+    "winreg": "^1.2.4"
+  },
+  "devDependencies": {
+    "antd": "^2.12.2",
+    "babel-core": "^6.25.0",
+    "babel-eslint": "^7.2.3",
+    "babel-loader": "^7.1.1",
+    "babel-plugin-transform-async-to-generator": "^6.24.1",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^0.28.4",
+    "devtron": "^1.4.0",
+    "electron": "^1.6.11",
+    "electron-builder": "^19.16.3",
+    "eslint": "^4.3.0",
+    "eslint-config-airbnb": "^15.1.0",
+    "eslint-config-prettier": "^2.3.0",
+    "eslint-plugin-babel": "^4.1.2",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-prettier": "^2.1.2",
+    "eslint-plugin-react": "^7.1.0",
+    "gulp": "^3.9.1",
+    "gulp-util": "^3.0.8",
+    "gulp-zip": "^4.0.0",
+    "jest": "^20.0.4",
+    "less": "^2.7.2",
+    "less-loader": "^4.0.5",
+    "material-ui": "^0.14.4",
+    "prettier": "1.5.3",
+    "react": "^0.14.8",
+    "react-dom": "^0.14.8",
+    "react-tap-event-plugin": "^0.2.2",
+    "rimraf": "^2.6.1",
+    "run-sequence": "^2.1.0",
+    "style-loader": "^0.18.2",
+    "webpack": "^3.4.1"
+  }
+}

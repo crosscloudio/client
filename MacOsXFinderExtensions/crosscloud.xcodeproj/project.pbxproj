@@ -1,0 +1,776 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5906FC861DAD855600B03AEB /* ipc_socket.c in Sources */ = {isa = PBXBuildFile; fileRef = 5906FC841DAD855600B03AEB /* ipc_socket.c */; };
+		590967461CBEAE350055A8FC /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 590967451CBEAE350055A8FC /* logo.png */; };
+		5909A05A1DB1954900858233 /* IPCSyncCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5909A0591DB1954900858233 /* IPCSyncCore.swift */; };
+		595DA2351DC6490000408F67 /* FinderSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB504151A35A84500C91056 /* FinderSync.swift */; };
+		595DA2371DC649A000408F67 /* FinderSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB504151A35A84500C91056 /* FinderSync.swift */; };
+		595DA2381DC64A5100408F67 /* LaunchServiceHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 59D0602D1D16AC5100DC35F3 /* LaunchServiceHelper.m */; };
+		5964212C1DB6C513007736B3 /* IPCHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5964212B1DB6C513007736B3 /* IPCHelper.swift */; };
+		59661E551DC01888002A4726 /* ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 59661E541DC01888002A4726 /* ObjC.m */; };
+		5992A5541D0B2C8200B2B12B /* synced.png in Resources */ = {isa = PBXBuildFile; fileRef = 5992A5521D0B2C8200B2B12B /* synced.png */; };
+		5992A5551D0B2C8200B2B12B /* syncing.png in Resources */ = {isa = PBXBuildFile; fileRef = 5992A5531D0B2C8200B2B12B /* syncing.png */; };
+		599529251DC270A900308DF9 /* SyncCoreTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599529241DC270A900308DF9 /* SyncCoreTest.swift */; };
+		5995292C1DC275BA00308DF9 /* IPCHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5964212B1DB6C513007736B3 /* IPCHelper.swift */; };
+		59A241FC1DC566AF00DBC28A /* IPCSyncCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5909A0591DB1954900858233 /* IPCSyncCore.swift */; };
+		59A241FF1DC60DAE00DBC28A /* ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 59661E541DC01888002A4726 /* ObjC.m */; };
+		59A242001DC60DAE00DBC28A /* ipc_socket.c in Sources */ = {isa = PBXBuildFile; fileRef = 5906FC841DAD855600B03AEB /* ipc_socket.c */; };
+		59D55CFA1DC64BEA004C9193 /* LaunchServiceHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 59D0602D1D16AC5100DC35F3 /* LaunchServiceHelper.m */; };
+		59F880FF1DFB5E2E00F265BC /* checked.png in Resources */ = {isa = PBXBuildFile; fileRef = 59F880FE1DFB5E2E00F265BC /* checked.png */; };
+		59F881011DFB708100F265BC /* unchecked.png in Resources */ = {isa = PBXBuildFile; fileRef = 59F881001DFB708100F265BC /* unchecked.png */; };
+		EF08A0681A3DBE6800A2A28A /* CrossCloud_512.png in Resources */ = {isa = PBXBuildFile; fileRef = EF08A0671A3DBE6800A2A28A /* CrossCloud_512.png */; };
+		EF08A06E1A3DC48E00A2A28A /* CrossCloud_16.png in Resources */ = {isa = PBXBuildFile; fileRef = EF08A0691A3DC48E00A2A28A /* CrossCloud_16.png */; };
+		EF08A06F1A3DC48E00A2A28A /* CrossCloud_32.png in Resources */ = {isa = PBXBuildFile; fileRef = EF08A06A1A3DC48E00A2A28A /* CrossCloud_32.png */; };
+		EF08A0701A3DC48E00A2A28A /* CrossCloud_64.png in Resources */ = {isa = PBXBuildFile; fileRef = EF08A06B1A3DC48E00A2A28A /* CrossCloud_64.png */; };
+		EF08A0711A3DC48E00A2A28A /* CrossCloud_128.png in Resources */ = {isa = PBXBuildFile; fileRef = EF08A06C1A3DC48E00A2A28A /* CrossCloud_128.png */; };
+		EF08A0721A3DC48E00A2A28A /* CrossCloud_256.png in Resources */ = {isa = PBXBuildFile; fileRef = EF08A06D1A3DC48E00A2A28A /* CrossCloud_256.png */; };
+		EF6BA5901B24411B00C02A41 /* CrossCloud_1024.png in Resources */ = {isa = PBXBuildFile; fileRef = EF6BA58F1B24411B00C02A41 /* CrossCloud_1024.png */; };
+		EFB503F21A35A81E00C91056 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB503F11A35A81E00C91056 /* AppDelegate.swift */; };
+		EFB503F41A35A81E00C91056 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFB503F31A35A81E00C91056 /* Assets.xcassets */; };
+		EFB503F71A35A81E00C91056 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFB503F51A35A81E00C91056 /* MainMenu.xib */; };
+		EFB504191A35A84500C91056 /* CrossCloud Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = EFB504101A35A84500C91056 /* CrossCloud Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		EFCFFEE31D0AA41400EB9EF9 /* crosscloud.icns in Resources */ = {isa = PBXBuildFile; fileRef = EFCFFEE21D0AA41400EB9EF9 /* crosscloud.icns */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		59AF3D4F1C30A82C00537D0A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EFB503E41A35A81E00C91056 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EFB5040F1A35A84500C91056;
+			remoteInfo = "CrossCloud Extension";
+		};
+		EFB503FD1A35A81E00C91056 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EFB503E41A35A81E00C91056 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EFB503EB1A35A81E00C91056;
+			remoteInfo = CrossCloud;
+		};
+		EFB504171A35A84500C91056 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EFB503E41A35A81E00C91056 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EFB5040F1A35A84500C91056;
+			remoteInfo = "CrossCloud Extension";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		EFB5041D1A35A84500C91056 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				EFB504191A35A84500C91056 /* CrossCloud Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		5906FC841DAD855600B03AEB /* ipc_socket.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ipc_socket.c; sourceTree = "<group>"; };
+		5906FC851DAD855600B03AEB /* ipc_socket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ipc_socket.h; sourceTree = "<group>"; };
+		590967451CBEAE350055A8FC /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		5909A0591DB1954900858233 /* IPCSyncCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IPCSyncCore.swift; sourceTree = "<group>"; };
+		5964212B1DB6C513007736B3 /* IPCHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IPCHelper.swift; sourceTree = "<group>"; };
+		59661E541DC01888002A4726 /* ObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjC.m; sourceTree = "<group>"; };
+		59661E561DC0189D002A4726 /* ObjC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjC.h; sourceTree = "<group>"; };
+		5992A5521D0B2C8200B2B12B /* synced.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = synced.png; sourceTree = "<group>"; };
+		5992A5531D0B2C8200B2B12B /* syncing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = syncing.png; sourceTree = "<group>"; };
+		599529241DC270A900308DF9 /* SyncCoreTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyncCoreTest.swift; sourceTree = "<group>"; };
+		599529261DC270E000308DF9 /* CrossCloudTests-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CrossCloudTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		59D0602C1D16AC5100DC35F3 /* LaunchServiceHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LaunchServiceHelper.h; sourceTree = "<group>"; };
+		59D0602D1D16AC5100DC35F3 /* LaunchServiceHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaunchServiceHelper.m; sourceTree = "<group>"; };
+		59F880FE1DFB5E2E00F265BC /* checked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checked.png; sourceTree = "<group>"; };
+		59F881001DFB708100F265BC /* unchecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unchecked.png; sourceTree = "<group>"; };
+		EF08A0671A3DBE6800A2A28A /* CrossCloud_512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CrossCloud_512.png; sourceTree = "<group>"; };
+		EF08A0691A3DC48E00A2A28A /* CrossCloud_16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CrossCloud_16.png; sourceTree = "<group>"; };
+		EF08A06A1A3DC48E00A2A28A /* CrossCloud_32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CrossCloud_32.png; sourceTree = "<group>"; };
+		EF08A06B1A3DC48E00A2A28A /* CrossCloud_64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CrossCloud_64.png; sourceTree = "<group>"; };
+		EF08A06C1A3DC48E00A2A28A /* CrossCloud_128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CrossCloud_128.png; sourceTree = "<group>"; };
+		EF08A06D1A3DC48E00A2A28A /* CrossCloud_256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CrossCloud_256.png; sourceTree = "<group>"; };
+		EF6BA58F1B24411B00C02A41 /* CrossCloud_1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CrossCloud_1024.png; sourceTree = "<group>"; };
+		EFB503EC1A35A81E00C91056 /* CrossCloud.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CrossCloud.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFB503F01A35A81E00C91056 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EFB503F11A35A81E00C91056 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		EFB503F31A35A81E00C91056 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EFB503F61A35A81E00C91056 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		EFB503FC1A35A81E00C91056 /* CrossCloudTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CrossCloudTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFB504011A35A81E00C91056 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EFB504101A35A84500C91056 /* CrossCloud Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "CrossCloud Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFB504131A35A84500C91056 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EFB504141A35A84500C91056 /* CrossCloud_Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = CrossCloud_Extension.entitlements; sourceTree = "<group>"; };
+		EFB504151A35A84500C91056 /* FinderSync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinderSync.swift; sourceTree = "<group>"; };
+		EFB504231A35BD4800C91056 /* CrossCloud-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CrossCloud-Bridging-Header.h"; sourceTree = "<group>"; };
+		EFCFFEE21D0AA41400EB9EF9 /* crosscloud.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = crosscloud.icns; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EFB503E91A35A81E00C91056 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EFB503F91A35A81E00C91056 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EFB5040D1A35A84500C91056 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5906FC821DAD834200B03AEB /* socket */ = {
+			isa = PBXGroup;
+			children = (
+				59661E541DC01888002A4726 /* ObjC.m */,
+				59661E561DC0189D002A4726 /* ObjC.h */,
+				5906FC841DAD855600B03AEB /* ipc_socket.c */,
+				5906FC851DAD855600B03AEB /* ipc_socket.h */,
+			);
+			name = socket;
+			sourceTree = "<group>";
+		};
+		59815D4F1DC241C100393E5E /* sidebar */ = {
+			isa = PBXGroup;
+			children = (
+				59D0602C1D16AC5100DC35F3 /* LaunchServiceHelper.h */,
+				59D0602D1D16AC5100DC35F3 /* LaunchServiceHelper.m */,
+			);
+			name = sidebar;
+			sourceTree = "<group>";
+		};
+		59D07CDD1C3550D50023B1B1 /* ipc */ = {
+			isa = PBXGroup;
+			children = (
+				5906FC821DAD834200B03AEB /* socket */,
+				5909A0591DB1954900858233 /* IPCSyncCore.swift */,
+				5964212B1DB6C513007736B3 /* IPCHelper.swift */,
+			);
+			name = ipc;
+			sourceTree = "<group>";
+		};
+		EF08A0661A3DBE6800A2A28A /* appicon */ = {
+			isa = PBXGroup;
+			children = (
+				EF6BA58F1B24411B00C02A41 /* CrossCloud_1024.png */,
+				EF08A0691A3DC48E00A2A28A /* CrossCloud_16.png */,
+				EF08A06A1A3DC48E00A2A28A /* CrossCloud_32.png */,
+				EF08A06B1A3DC48E00A2A28A /* CrossCloud_64.png */,
+				EF08A06C1A3DC48E00A2A28A /* CrossCloud_128.png */,
+				EF08A06D1A3DC48E00A2A28A /* CrossCloud_256.png */,
+				EF08A0671A3DBE6800A2A28A /* CrossCloud_512.png */,
+			);
+			name = appicon;
+			path = CrossCloud/appicon;
+			sourceTree = "<group>";
+		};
+		EFB503E31A35A81E00C91056 = {
+			isa = PBXGroup;
+			children = (
+				EF08A0661A3DBE6800A2A28A /* appicon */,
+				EFB503EE1A35A81E00C91056 /* CrossCloud */,
+				EFB503FF1A35A81E00C91056 /* CrossCloudTests */,
+				EFB504111A35A84500C91056 /* CrossCloud Extension */,
+				EFB503ED1A35A81E00C91056 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EFB503ED1A35A81E00C91056 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EFB503EC1A35A81E00C91056 /* CrossCloud.app */,
+				EFB503FC1A35A81E00C91056 /* CrossCloudTests.xctest */,
+				EFB504101A35A84500C91056 /* CrossCloud Extension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EFB503EE1A35A81E00C91056 /* CrossCloud */ = {
+			isa = PBXGroup;
+			children = (
+				EFB503F11A35A81E00C91056 /* AppDelegate.swift */,
+				EFB503F31A35A81E00C91056 /* Assets.xcassets */,
+				EFB503F51A35A81E00C91056 /* MainMenu.xib */,
+				EFB503EF1A35A81E00C91056 /* Supporting Files */,
+			);
+			path = CrossCloud;
+			sourceTree = "<group>";
+		};
+		EFB503EF1A35A81E00C91056 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EFB503F01A35A81E00C91056 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EFB503FF1A35A81E00C91056 /* CrossCloudTests */ = {
+			isa = PBXGroup;
+			children = (
+				EFB504001A35A81E00C91056 /* Supporting Files */,
+				599529241DC270A900308DF9 /* SyncCoreTest.swift */,
+			);
+			path = CrossCloudTests;
+			sourceTree = "<group>";
+		};
+		EFB504001A35A81E00C91056 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EFB504011A35A81E00C91056 /* Info.plist */,
+				599529261DC270E000308DF9 /* CrossCloudTests-Bridging-Header.h */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EFB504111A35A84500C91056 /* CrossCloud Extension */ = {
+			isa = PBXGroup;
+			children = (
+				59815D4F1DC241C100393E5E /* sidebar */,
+				59D07CDD1C3550D50023B1B1 /* ipc */,
+				EFB504231A35BD4800C91056 /* CrossCloud-Bridging-Header.h */,
+				EFB504151A35A84500C91056 /* FinderSync.swift */,
+				EFB504121A35A84500C91056 /* Supporting Files */,
+			);
+			path = "CrossCloud Extension";
+			sourceTree = "<group>";
+		};
+		EFB504121A35A84500C91056 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EFCFFEE21D0AA41400EB9EF9 /* crosscloud.icns */,
+				5992A5521D0B2C8200B2B12B /* synced.png */,
+				59F880FE1DFB5E2E00F265BC /* checked.png */,
+				59F881001DFB708100F265BC /* unchecked.png */,
+				5992A5531D0B2C8200B2B12B /* syncing.png */,
+				590967451CBEAE350055A8FC /* logo.png */,
+				EFB504131A35A84500C91056 /* Info.plist */,
+				EFB504141A35A84500C91056 /* CrossCloud_Extension.entitlements */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EFB503EB1A35A81E00C91056 /* CrossCloud */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EFB504061A35A81E00C91056 /* Build configuration list for PBXNativeTarget "CrossCloud" */;
+			buildPhases = (
+				EFB503E81A35A81E00C91056 /* Sources */,
+				EFB503E91A35A81E00C91056 /* Frameworks */,
+				EFB503EA1A35A81E00C91056 /* Resources */,
+				EFB5041D1A35A84500C91056 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EFB504181A35A84500C91056 /* PBXTargetDependency */,
+			);
+			name = CrossCloud;
+			productName = CrossCloud;
+			productReference = EFB503EC1A35A81E00C91056 /* CrossCloud.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EFB503FB1A35A81E00C91056 /* CrossCloudTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EFB504091A35A81E00C91056 /* Build configuration list for PBXNativeTarget "CrossCloudTests" */;
+			buildPhases = (
+				EFB503F81A35A81E00C91056 /* Sources */,
+				EFB503F91A35A81E00C91056 /* Frameworks */,
+				EFB503FA1A35A81E00C91056 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				59AF3D501C30A82C00537D0A /* PBXTargetDependency */,
+				EFB503FE1A35A81E00C91056 /* PBXTargetDependency */,
+			);
+			name = CrossCloudTests;
+			productName = CrossCloudTests;
+			productReference = EFB503FC1A35A81E00C91056 /* CrossCloudTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		EFB5040F1A35A84500C91056 /* CrossCloud Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EFB5041A1A35A84500C91056 /* Build configuration list for PBXNativeTarget "CrossCloud Extension" */;
+			buildPhases = (
+				EFB5040C1A35A84500C91056 /* Sources */,
+				EFB5040D1A35A84500C91056 /* Frameworks */,
+				EFB5040E1A35A84500C91056 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "CrossCloud Extension";
+			productName = "CrossCloud Extension";
+			productReference = EFB504101A35A84500C91056 /* CrossCloud Extension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EFB503E41A35A81E00C91056 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				KnownAssetTags = (
+					New,
+				);
+				LastSwiftMigration = 0720;
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = "Johannes Innerbichler";
+				TargetAttributes = {
+					EFB503EB1A35A81E00C91056 = {
+						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = N5D9CE5JAT;
+						LastSwiftMigration = 0800;
+						ProvisioningStyle = Automatic;
+					};
+					EFB503FB1A35A81E00C91056 = {
+						CreatedOnToolsVersion = 6.1.1;
+						LastSwiftMigration = 0800;
+						TestTargetID = EFB503EB1A35A81E00C91056;
+					};
+					EFB5040F1A35A84500C91056 = {
+						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = N5D9CE5JAT;
+						LastSwiftMigration = 0800;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 0;
+							};
+							com.apple.iCloud = {
+								enabled = 0;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = EFB503E71A35A81E00C91056 /* Build configuration list for PBXProject "crosscloud" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EFB503E31A35A81E00C91056;
+			productRefGroup = EFB503ED1A35A81E00C91056 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EFB503EB1A35A81E00C91056 /* CrossCloud */,
+				EFB503FB1A35A81E00C91056 /* CrossCloudTests */,
+				EFB5040F1A35A84500C91056 /* CrossCloud Extension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EFB503EA1A35A81E00C91056 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF6BA5901B24411B00C02A41 /* CrossCloud_1024.png in Resources */,
+				EF08A0701A3DC48E00A2A28A /* CrossCloud_64.png in Resources */,
+				EF08A0711A3DC48E00A2A28A /* CrossCloud_128.png in Resources */,
+				EF08A0721A3DC48E00A2A28A /* CrossCloud_256.png in Resources */,
+				EFB503F41A35A81E00C91056 /* Assets.xcassets in Resources */,
+				EF08A06F1A3DC48E00A2A28A /* CrossCloud_32.png in Resources */,
+				EFB503F71A35A81E00C91056 /* MainMenu.xib in Resources */,
+				EF08A0681A3DBE6800A2A28A /* CrossCloud_512.png in Resources */,
+				EF08A06E1A3DC48E00A2A28A /* CrossCloud_16.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EFB503FA1A35A81E00C91056 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EFB5040E1A35A84500C91056 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				59F880FF1DFB5E2E00F265BC /* checked.png in Resources */,
+				5992A5551D0B2C8200B2B12B /* syncing.png in Resources */,
+				590967461CBEAE350055A8FC /* logo.png in Resources */,
+				EFCFFEE31D0AA41400EB9EF9 /* crosscloud.icns in Resources */,
+				59F881011DFB708100F265BC /* unchecked.png in Resources */,
+				5992A5541D0B2C8200B2B12B /* synced.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EFB503E81A35A81E00C91056 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFB503F21A35A81E00C91056 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EFB503F81A35A81E00C91056 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				59D55CFA1DC64BEA004C9193 /* LaunchServiceHelper.m in Sources */,
+				595DA2351DC6490000408F67 /* FinderSync.swift in Sources */,
+				59A241FF1DC60DAE00DBC28A /* ObjC.m in Sources */,
+				59A242001DC60DAE00DBC28A /* ipc_socket.c in Sources */,
+				59A241FC1DC566AF00DBC28A /* IPCSyncCore.swift in Sources */,
+				5995292C1DC275BA00308DF9 /* IPCHelper.swift in Sources */,
+				599529251DC270A900308DF9 /* SyncCoreTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EFB5040C1A35A84500C91056 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				595DA2381DC64A5100408F67 /* LaunchServiceHelper.m in Sources */,
+				595DA2371DC649A000408F67 /* FinderSync.swift in Sources */,
+				5906FC861DAD855600B03AEB /* ipc_socket.c in Sources */,
+				5909A05A1DB1954900858233 /* IPCSyncCore.swift in Sources */,
+				5964212C1DB6C513007736B3 /* IPCHelper.swift in Sources */,
+				59661E551DC01888002A4726 /* ObjC.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		59AF3D501C30A82C00537D0A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EFB5040F1A35A84500C91056 /* CrossCloud Extension */;
+			targetProxy = 59AF3D4F1C30A82C00537D0A /* PBXContainerItemProxy */;
+		};
+		EFB503FE1A35A81E00C91056 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EFB503EB1A35A81E00C91056 /* CrossCloud */;
+			targetProxy = EFB503FD1A35A81E00C91056 /* PBXContainerItemProxy */;
+		};
+		EFB504181A35A84500C91056 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EFB5040F1A35A84500C91056 /* CrossCloud Extension */;
+			targetProxy = EFB504171A35A84500C91056 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		EFB503F51A35A81E00C91056 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EFB503F61A35A81E00C91056 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EFB504041A35A81E00C91056 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEFINES_MODULE = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VALID_ARCHS = x86_64;
+			};
+			name = Debug;
+		};
+		EFB504051A35A81E00C91056 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALID_ARCHS = x86_64;
+			};
+			name = Release;
+		};
+		EFB504071A35A81E00C91056 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = N5D9CE5JAT;
+				INFOPLIST_FILE = CrossCloud/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = crosscloud.shellextension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		EFB504081A35A81E00C91056 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = N5D9CE5JAT;
+				INFOPLIST_FILE = CrossCloud/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = crosscloud.shellextension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		EFB5040A1A35A81E00C91056 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = CrossCloudTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "CrossCloud.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CrossCloudTests/CrossCloudTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/crosscloud.temp_caseinsensitive_rename.app/Contents/MacOS/crosscloud.temp_caseinsensitive_rename";
+			};
+			name = Debug;
+		};
+		EFB5040B1A35A81E00C91056 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = CrossCloudTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "CrossCloud.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CrossCloudTests/CrossCloudTests-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/crosscloud.temp_caseinsensitive_rename.app/Contents/MacOS/crosscloud.temp_caseinsensitive_rename";
+			};
+			name = Release;
+		};
+		EFB5041B1A35A84500C91056 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_ENTITLEMENTS = "CrossCloud Extension/CrossCloud_Extension.entitlements";
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = N5D9CE5JAT;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SRCROOT)",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "CrossCloud Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
+				OTHER_LDFLAGS = (
+					"-fapplication-extension",
+					"-fmodules",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = crosscloud.shellextension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/CrossCloud Extension/CrossCloud-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		EFB5041C1A35A84500C91056 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_ENTITLEMENTS = "CrossCloud Extension/CrossCloud_Extension.entitlements";
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = N5D9CE5JAT;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SRCROOT)",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "CrossCloud Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
+				OTHER_LDFLAGS = (
+					"-fapplication-extension",
+					"-fmodules",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = crosscloud.shellextension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/CrossCloud Extension/CrossCloud-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EFB503E71A35A81E00C91056 /* Build configuration list for PBXProject "crosscloud" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EFB504041A35A81E00C91056 /* Debug */,
+				EFB504051A35A81E00C91056 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EFB504061A35A81E00C91056 /* Build configuration list for PBXNativeTarget "CrossCloud" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EFB504071A35A81E00C91056 /* Debug */,
+				EFB504081A35A81E00C91056 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EFB504091A35A81E00C91056 /* Build configuration list for PBXNativeTarget "CrossCloudTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EFB5040A1A35A81E00C91056 /* Debug */,
+				EFB5040B1A35A81E00C91056 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EFB5041A1A35A84500C91056 /* Build configuration list for PBXNativeTarget "CrossCloud Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EFB5041B1A35A84500C91056 /* Debug */,
+				EFB5041C1A35A84500C91056 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EFB503E41A35A81E00C91056 /* Project object */;
+}

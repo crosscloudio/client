@@ -1,0 +1,134 @@
+ 
+ # simple case should not do anything; its in sync
+ -  node:
+      equivalents:
+        new:
+          local: 12
+          remote: 14
+      storage:
+        local: 
+          version_id: 12
+        remote:
+          version_id: 14
+    expected_event:
+    params:
+
+# simple upload case, file never existed before
+ -  node:
+      storage:
+        local: 
+          version_id: 12
+    expected_event: 'e_issue_upload'
+    params: 
+      target_storage_ids: !!set 
+        ? "remote"
+
+#simple download case, file never existed before
+ -  node:
+      storage:
+        remote: 
+          version_id: 12
+    expected_event: 'e_issue_download'
+    params: 
+      source_storage_id: "remote"
+
+# file has been modified locally -> upload
+ -  node:
+      storage:
+        local:
+          version_id: 14
+        remote: 
+          version_id: 12
+      equivalents:
+        new: 
+          local: 15
+          remote: 12
+    expected_event: 'e_issue_upload'
+    params: 
+      target_storage_ids: !!set 
+        ? "remote"
+
+# file has been modified remotly -> download
+ -  node:
+      storage:
+        local:
+          version_id: 14
+        remote: 
+          version_id: 12
+      equivalents:
+        new: 
+          local: 14
+          remote: 11
+    expected_event: 'e_issue_download'
+    params: 
+      source_storage_id: "remote"
+
+
+# file has been deleted remotly -> delete locally
+ -  node:
+      storage:
+        local:
+          version_id: 14
+      equivalents:
+        new: 
+          local: 14
+          remote: 11
+    expected_event: 'e_issue_delete'
+    params: 
+      target_storage_ids: !!set 
+        ? "local"
+  
+
+
+# file has been deleted remotly -> delete locally
+ -  node:
+      storage:
+        local:
+          version_id: 'cc'
+        remote:
+          version_id: 'abc'
+      equivalents:
+        new: 
+          local: 14
+          remote: 11
+    expected_event: 'e_conflicted'
+
+  
+
+# enabled	sync_rules	desired_storages	old_equivalents	new_equivalents	actual_storages	expected_event	params	comment		
+# y		["local", "csp1"]		{"local": 12, "csp1":14}	{"local" :12}	e_issue_delete	{"target_storage_ids": ["local"]}	Simple delete situation for the local storage	
+# y	["csp1", "csp3"]	["local", "csp1", "csp3"]		{"local": 12, "csp1":14, "csp3":123}	{"local" :12,"csp3":123}	e_issue_delete	{"target_storage_ids": ["local", "csp3"]}	Simple delete situation with syncrules	
+# y		["local", "csp1"]		{"local": 12, "csp1":14}	{"local": 12, "csp1":15}	e_issue_download	{"source_storage_id": "csp1"}	A download because the file was changed on the csp	
+# y		["local", "csp1"]		{"local": 12, "csp1":14}	{"local": 13, "csp1":14}	e_issue_upload	{"target_storage_ids": ["csp1"]}	An upload because the file was changed on the filesystem	
+# y	["csp1", "csp2"]	["local", "csp1", "csp2"]		{"local": 12, "csp1":14}	{"local":12, "csp1": 14}	e_issue_upload	{"target_storage_ids": ["csp2"]}	Adding csp2 to SyncRules	
+# y	["local", "csp1"]	["local", "csp1", "csp2"]		{"local": 12, "csp1":14, "csp2": 15}	{"local": 12, "csp1": 14, "csp2":15}	e_issue_delete	{"target_storage_ids": ["csp2"]}	Removing csp2 from SyncRules	
+# y	["csp1", "csp2"]	["local", "csp1", "csp2"]			{"local" :12}	e_issue_upload	{"target_storage_ids": ["csp1", "csp2"]}	New file with SyncRule to csp1 and csp2	
+# y	["csp1", "csp2"]	["local", "csp1", "csp2"]		{"local": 12, "csp1":14, "csp2": 15}	{"csp1": 14, "csp2": 15}	e_issue_delete	{"target_storage_ids": ["csp1", "csp2"]}	Delete local file with SyncRule to csp1 and csp2	
+# y	["csp1", "csp2"]	["local", "csp1", "csp2"]		{"local": 12, "csp1":14, "csp2": 15}	{"local": 12, "csp2":15}	e_issue_delete	{"target_storage_ids": ["local", "csp2"]}	Delete remote file with SyncRule to csp1 and csp2	
+# y	["csp1", "csp2"]	["local", "csp1", "csp2"]		{"local": 12, "csp1":14, "csp2": 15}	{"local": 99, "csp1": 14, "csp2": 15}	e_issue_upload	{"target_storage_ids": ["csp1", "csp2"]}	Modify local file with SyncRule to csp1 and csp2	
+# y	["csp1", "csp2"]	["local", "csp1", "csp2"]		{"local": 12, "csp1":14, "csp2": 15}	{"local": 12, "csp1": 99, "csp2": 15}	e_issue_download	{"source_storage_id": "csp1"}	Modify remote file on csp1 with SyncRule to csp1 and csp2	
+# y	["csp1", "csp2"]	["local", "csp1", "csp2"]	{"local": "A", "csp1": "B", "csp2": "C"}	{"csp1":"D", "local": "E"}	{"local": "E", "csp1": "D", "csp2": "C"}	e_issue_upload	{"target_storage_ids": ["csp2"]}	Upload to CSP2 after Download from CSP1 with sycnrule on csp1,csp2	
+# y		[]		{"csp1":"A]", "local": "B"}	{"local": "B"}	e_issue_delete	{"target_storage_ids": ["local"]}	State sync file deleted from csp	
+# y		["local", "csp1", "csp2"]		{"local": 12, "csp1":14, "csp2": 15}	{"local": 12, "csp1":14, "csp2": 15}	e_issue_delete		Drop a syncrule	CSP_ID ot deterministic
+# y		["local", "csp1"]		{"local":12, "csp1":14}	{"local": {"version_id":16}, "csp1":  {"deleted":true}}	e_issue_upload		a file deleted remote and changed local	
+# y		["local", "csp1"]		{"csp1": "4336a3a6da055", "local": 1460980377.3061457}	{"csp1": {"version_id": "4336d3a6da055"}}	e_issue_download	{"source_storage_id": "csp1"}	https://app.getsentry.com/crosscloud-gmbh-i6/crosscloud-client/issues/123510673/	
+# y		["local", "csp1"]		{"local":12, "csp1":14}	{"csp2": {"version_id": 18}}	e_issue_download	{"source_storage_id": "csp2"}	https://app.getsentry.com/crosscloud-gmbh-i6/crosscloud-client/issues/123747500/	
+# y	["csp1", "csp2"]	["local", "csp1", "csp2"]	{"local": "A", "csp1": "B", "csp2": "C"}	{"csp1":"D", "local": "E"}	{"local": "E", "csp1": "D", "csp2": "X"}	e_conflicted		A change on cps2 came while downloading from csp1 to local	
+# y		["local", "csp1"]		{"csp1":"A]", "local": "B"}	{"local": "B", "csp1": "A", "csp2": "X"}	e_conflicted		External conflict case, happens if a file with the same name is added to a not involved csp	
+# y		["local", "csp1"]			{"csp1": 14, "local":123}	e_conflicted		conflict, because nothing was ever synced, so no equivilatens ever existed	
+# y					{"csp1": 14, "local":123, "csp2": 321}	e_conflicted		conflict, because nothing was ever synced, so no equivilatens ever existed	
+# y		["local", "csp1"]		{"csp1": 1, "local":2}	{"csp1": 14, "local":123}	e_conflicted		conflict, because more then one storage changed	
+# y		["local", "csp1"]			{"csp1": "is_dir", "local":"is_dir"}	e_conflicted		Directories without equivalent list	
+# y		["local", "csp1"]			{"csp1": "is_dir", "local":15}	e_conflicted		Conflict between file and directory	
+# y					{"local": {"is_dir":true, "version_id":"is_dir"}, "csp1": {"is_dir":true, "version_id":"is_dir"}, "csp2":{"is_dir":true, "version_id":"is_dir"}}	e_conflicted		Directories on multiple csps without equivalents	
+# y					{"csp1": 14, "csp2":123}	e_conflicted		File only on two csps without equivalents	
+# y	["csp1", "csp2"]				{"local": 12}	e_issue_upload	{"target_storage_ids": ["csp1", "csp2"]}	Syncrule to 2 csps and new file added locally	
+# y	["csp1", "csp2", "csp3"]			{"local": 12, "csp1": 14}	{"local": {"version_id": 12}, "csp1": {"version_id": 14}}	e_issue_upload	{"target_storage_ids": ["csp2", "csp3"]}	Syncrule to 3 csps set after already in sync between local and one csp	
+# y	["csp1", "csp2", "csp3"]			{"local": 12, "csp1": 14, "csp2":15, "csp3": 16}	{"local": {"version_id": 12}, "csp1": {"version_id": 14}, "csp2": {"version_id": 15}}	e_issue_delete	{"target_storage_ids": ["csp1", "csp2", "local"]}	Syncrule to 3 csps and deleted from one after in sync	
+# y	["csp1", "csp2", "csp3"]			{"local": 12, "csp1": 14, "csp2":15, "csp3": 16}	{"local": {"version_id": 12}, "csp1": {"version_id": 14}, "csp2":{"version_id": 77}}	e_issue_delete	{"target_storage_ids": ["csp1", "local"]}	Syncrule to 3 csps and deleted from one and changed on another after in sync	
+# y	["csp1", "csp2", "csp3"]			{"local": 12, "csp1": 14, "csp2":15, "csp3": 16}	{"local": {"version_id": 12}, "csp1": {"version_id": 14}, "csp2": {"version_id": 77}, "csp3": {"version_id": 16}}	e_issue_download	{"source_storage_id": "csp2"}	Syncrule to 3 csps changed on another after in sync	
+# y	["csp1", "csp2", "csp3"]				{"csp2":{"version_id": 77}}	e_issue_download	{"source_storage_id": "csp2"}	Syncrule to 3 csps and added a new file on a csp	
+# y	["csp1", "csp2", "csp3"]				{"local": {"version_id": 77}}	e_issue_upload	{"target_storage_ids": ["csp1", "csp2", "csp3"]}	Syncrule to 3 csps and added a new file locally	
+# y	["csp1", "csp2"]			{"local": 12, "csp1": 14}	{"local": {"version_id": 12}}	e_issue_delete	{"target_storage_ids": ["local"]}	https://app.getsentry.com/crosscloud-gmbh-i6/crosscloud-client/issues/123900248/	
+# 	["csp1", "csp2", "csp3", "csp4"]			{"local": 12, "csp1": 14, "csp2": 15}	{"local": 77, "csp3": 16}	e_conflicted		https://app.getsentry.com/crosscloud-gmbh-i6/crosscloud-client/issues/126148623/	Not running at the moment
+# y			{"csp1": "450341eb612d82e0512211b32e378173", "local": "1463994256.1659398"}	{"csp1": "115c5bcebd20397fea34340bfaa4f66e", "local": "1463994268.857978"}	{"csp1": "115c5bcebd20397fea34340bfaa4f66e", "local": "1463994301.098063"}	e_issue_upload	{"target_storage_ids": ["csp1"]}	https://gitlab.crosscloud.me/CrossCloud/client/issues/209	

@@ -1,0 +1,57 @@
+{
+  "metadata":{"version" : "1.0"},
+
+  "general": {
+    "device_id": "<UUID>",
+    "sync_root_directory": "<PATH>",
+    "last_login": "2017-03-21T12:46:28+00:00"
+  },
+
+  "storage_providers": {
+    "dropbox_123455869": {
+        "unique_id": "<unqiue_id>",
+        "type": "dropbox",
+        "display_name": "Dropbox",
+        "selected_sync_directories": [["a", "b"], ["a"], ["b"]],
+        "credentials": {},
+        "shares" : {
+            "<unique_share_id>": {
+                "private_share_key": "<pem_key>"
+            }
+        }
+    },
+    "onedrive_3492938483": {
+        "unique_id": "<unqiue_id>",
+        "type": "onedrive",
+        "display_name": "Onedrive von Redemonde",
+        "selected_sync_directories": [["a", "b"], ["a"], ["b"]],
+        "credentials": {}
+    }
+  },
+
+  "encryption": {
+    "encryption_enabled": true,
+    "encrypt_storage_provider_types": ["onedrive"],
+    "encrypt_external_shares": false,
+    "encrypt_public_shares": false,
+    "device_private_key": "-----BEGIN PRIVATE KEY....",
+    "device_public_key": "-----BEGIN RSA PUBLIC: ....",
+    "user_private_key": "-----BEGIN PRIVATE KEY....",
+    "user_public_key": "-----BEGIN RSA PUBLIC: ...."
+    },
+
+  "admin_console_state": {
+    "storage_providers": {
+      "onedrive_3492938483": {
+        "unique_id": "<unqiue_id>",
+        "type": "onedrive",
+        "display_name": "Onedrive von Redemonde"
+      }
+    },
+    "policies": [{"is_enabled": true,
+                  "name": "Python Files",
+                  "criteria": "py",
+                  "type": "fileextension",
+                  "policy_type": "blacklist"}]
+    }
+}

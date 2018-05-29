@@ -1,0 +1,61 @@
+version: 1
+disable_existing_loggers: False
+formatters:
+  simple:
+    # format: "{levelname:^5} | {threadName:^15.15} | {funcName:^15.15} | {message}"
+    format: "{levelname:^5} | {name:^25.25} | {funcName:^15.15} | {message}"
+    style: '{'
+
+handlers:
+  file_handler:
+    class: logging.FileHandler
+    level: DEBUG
+    formatter: simple
+    filename: /tmp/cc-debug.log
+
+loggers:
+  __main__:
+    level: DEBUG
+    handlers: [file_handler]
+
+  tests:
+    level: INFO
+    handlers: [file_handler]
+
+  cc.client:
+    level: INFO
+    handlers: [file_handler]
+
+  cc.synchronization:
+    level: WARNING
+    handlers: [file_handler]
+
+  cc.synchronization.syncfsm:
+    level: WARNING
+    handlers: [file_handler]
+
+  cc.synchronization.step:
+    level: WARNING
+    handlers: [file_handler]
+
+  cc.synchronization.syncengine:
+    level: WARNING
+    handlers: [file_handler]
+
+  cc.synchronization_directory:
+    level: WARNING
+    handlers: [file_handler]
+
+  cc.shell_extension_server:
+    level: WARNING
+  cc:
+    level: DEBUG 
+    handlers: [file_handler]
+
+  cc.settings_sync:
+    level: DEBUG
+    handlers: [file_handler]
+
+  jars:
+    level: WARNING 
+    handlers: [file_handler]

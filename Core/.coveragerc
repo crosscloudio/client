@@ -1,0 +1,13 @@
+[run]
+branch = False
+include = cc/**.py
+omit = **/cifs.py, cc/client.py, cc/qt_client.py, **/multi.py, **/ipc_gui.py, **/windows_explorer.py, cc/storage/**, cc/winapi.py, cc/ipc_core.py, cc/jsonrpc.py
+
+[report]
+show_missing = True
+ignore_errors = True
+
+[paths]
+source =
+    .
+    C:\gl\builds\*\*\CrossCloud\client\Core

@@ -1,0 +1,38 @@
+# Numerous always-ignore extensions
+*.diff
+*.err
+*.orig
+*.log
+*.rej
+*.swo
+*.swp
+*.vi
+*~
+*.sass-cache
+
+# OS or Editor folders
+.DS_Store
+.cache
+.project
+.settings
+.tmproj
+nbproject
+Thumbs.db
+
+# node specific
+node_modules
+coverage
+npm-debug.log
+.nodemon-find-ref
+
+# python specific
+*.py[cod]
+__pycache__
+
+# app specific
+build/
+daemon/prod/
+renderer-build/
+lextab.py
+yacctab.py
+.idea
